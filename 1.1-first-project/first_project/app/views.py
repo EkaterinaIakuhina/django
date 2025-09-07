@@ -33,10 +33,7 @@ def workdir_view(request):
     # по аналогии с `time_view`, напишите код,
     # который возвращает список файлов в рабочей 
     # директории
-    current_path = os.path.curdir
-    list_of_files = os.listdir(current_path)
-    if not list_of_files:
-        raise NotImplemented
-    else:
-        return HttpResponse(f'{"\n".join(list_of_files)}')
+    file_list = '\n'.join(os.listdir('.'))
+    msg = f'Список файлов в рабочей директории:\n {file_list}'
+    return HttpResponse(msg)
     
