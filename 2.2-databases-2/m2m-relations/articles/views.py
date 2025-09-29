@@ -11,4 +11,7 @@ def articles_list(request):
     # https://docs.djangoproject.com/en/3.1/ref/models/querysets/#django.db.models.query.QuerySet.order_by
     ordering = '-published_at'
 
+    result = Article.objects.order_by(ordering).all()
+    context['object_list'] = result
+
     return render(request, template, context)
